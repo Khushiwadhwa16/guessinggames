@@ -23,3 +23,4 @@ def rock_paper_scissor():
             print("Scissors cuts paper! You win!")
         else:
             print("Rock smashes scissors! You lose.")
+            print("hlo")
