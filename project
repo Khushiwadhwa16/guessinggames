@@ -1,0 +1,72 @@
+def game():    
+    player=input("Who is playing?\n")
+    input(f"Welcome to the GameZone {player.title()}\nPress Enter to enter the 'Zone' \n")
+    print("1 : Guess the number\n2 : Hangman\n3 : Rock, paper and scissor")
+    #Main loop
+    while True:
+        game=int(input("Please type the number corresponding to the game you want to play or 0 to quit: \n"))
+        if game==0:
+            print()
+            print()
+            print(f"You won {win} times and lost {loose} times")
+            print("Thanks for playing! \nHave a nice day!!")
+            break
+        if game==1:
+            print()
+            print()
+            guess_num()
+        if game==2:
+            print()
+            print()
+            hangman()
+        if game==3:
+            print()
+            print()
+            rock_paper_scissor()
+        re=input("Wanna play more?(y/n)\n")
+        if re == "y":
+            continue
+        else:
+            print()
+            print()
+            print(f"You won {win} times and lost {loose} times")
+            print("Thanks for playing! \nHave a nice day!!")
+            break
+#Play area
+game(import random as r
+from math import fabs
+win,loose=0,0
+# 1 : Guess the number
+def guess_num():
+    global loose,win
+    i = 1
+    print("Welcome to the Guess the Number \n The rules are simple \n You guess a number(1-10) and if it matches with the random number the computer has chosen, You win!! \n You only get three tries though \n P.S. watch out for the temprature \n Hot is super close, Warm is close, Cold is far \nLets begin!!!")
+    print("Please guess a number")
+    target = r.randint(1,10)
+    while i<4:
+        guess = int(input())
+        temp=fabs(target-guess)
+        if guess != target:
+            if temp<3:
+                print(f"Hot!!")
+            if 5>temp>=3:
+                print(f"Warm")
+            if temp>=5:
+                print(f"Cold")
+        if guess != target and i<3:
+            print("Try again")
+        if guess>10:
+            print("Please select a number between 1 and 10")
+        elif guess == target:
+            print('You win')
+            print()
+            print()
+            win+=1
+            break
+        i+=1
+    if i==4:
+        print("You Lose!!")
+        print(f"The number was {target}")
+        print()
+        print()
+        loose+=1
